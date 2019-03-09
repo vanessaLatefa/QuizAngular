@@ -1,0 +1,59 @@
+
+<div style="text-align: center;">
+  <form [formGroup] = "registerForm" (ngSubmit)="onSubmit()">
+  
+    <h2> Create your profile </h2>
+      <div>
+        <p>Name: </p>
+        
+        <mat-form-field class="example-full-width">
+        <input matInput type="text" formControlName="name" id="name">
+        </mat-form-field>
+  
+        <div *ngIf="registerForm.controls.name.errors?.required && registerForm.controls.name.dirty">
+            Please fill out your name
+        </div>
+      </div>
+  
+      <div >
+          <p>Age: </p>
+  
+          <mat-form-field class="example-full-width">
+            <input matInput type="text" formControlName="age" id="age">
+          </mat-form-field>
+  
+          <div *ngIf="registerForm.controls.name.errors?.required && registerForm.controls.age.dirty">
+            Please fill out your age
+          </div>
+        </div>
+  
+        <div>
+          <p>Date of birth :</p>
+  
+            <mat-form-field class="example-full-width">
+              <input  matInput [matDatepicker]="picker" placeholder="Choose a date" type="date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field> 
+  
+        </div>
+  
+        <div>
+            <p>Location: </p>
+  
+            <mat-form-field class="example-full-width">
+            <input matInput type="text" formControlName="location" id="location">
+          </mat-form-field>
+  
+            <div *ngIf="registerForm.controls.location.errors?.required && registerForm.controls.location.dirty">
+              Please fill out your location
+  
+            </div>
+  
+        </div>
+  
+      <button mat-fab type="submit">Register</button>
+  
+      
+  </form>
+  </div>

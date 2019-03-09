@@ -1,0 +1,8 @@
+
+<button mat-button [matMenuTriggerFor]="menu" routerLink = "portal">Portal</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="portal/create-quiz">Create a quiz</button>
+  <button mat-menu-item routerLink="display-quiz">Display a quiz</button>
+</mat-menu>
+
+<router-outlet></router-outlet>

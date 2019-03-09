@@ -1,0 +1,41 @@
+ <div style="text-align: center;">
+  <form [formGroup] = "loginForm" (ngSubmit)="onSubmit()">
+  
+      <div>
+          <p>Username</p>
+
+             <mat-form-field class="example-full-width">
+                <input matInput type="text" formControlName="username">
+            </mat-form-field>
+        
+          <div *ngIf=" loginForm.controls.username.errors?.required && loginForm.controls.username.dirty">
+              Please fill out the username
+          </div>
+  
+          <div *ngIf=" loginForm.controls.username.errors?.minlength && loginForm.controls.username.dirty">
+              Minimum 3 characters
+          </div>
+      </div>
+  
+      <div>
+          <p>Password</p>
+  
+          <mat-form-field class="example-full-width">
+                <input matInput type="password" formControlName="password">
+            </mat-form-field>
+      
+           <div *ngIf=" !loginForm.controls.password.valid && loginForm.controls.password.dirty">
+             Please create a password
+           </div>
+      </div>
+      
+      <button mat-fab type="submit" > Login</button>
+  
+  </form>
+</div> 
+
+<router-outlet></router-outlet>
+<!--
+    -add a button for the new options
+    -add the router outlet tag
+    router-outlet Defines where the content (active route/component should be) -->
